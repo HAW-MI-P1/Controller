@@ -1,6 +1,12 @@
-public class FacbookAPI implements IFacebookAPI {
+package FacebookAPIPkg;
 
-    public Collection<Person> collect(JsonObject requests) {
+import java.util.*;
+import ControllerPkg.*;
+
+public class FacbookAPI implements IFacebookAPI 
+{
+    public Collection<Person> collect(JsonObject requests) 
+    {
         throw new UnsupportedOperationException();
     }
 }

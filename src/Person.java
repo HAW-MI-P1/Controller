@@ -1,4 +1,7 @@
-public class Person {
+package ControllerPkg;
+
+public class Person 
+{
     private String facebookID;
     private String firstname;
     private String lastname;

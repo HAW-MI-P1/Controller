@@ -1,0 +1,9 @@
+
+public class main 
+{
+	public static void start(String[] args)
+	{
+        System.out.println("Start...");
+	}
+
+}

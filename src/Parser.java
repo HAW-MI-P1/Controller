@@ -1,6 +1,12 @@
-public class Parser implements IParser {
+package ParserPkg;
 
-    public JsonObject parse(String naturalLanguage) {
+import ControllerPkg.*;
+
+public class Parser implements IParser 
+{
+
+    public JsonObject parse(String naturalLanguage) 
+    {
         throw new UnsupportedOperationException();
     }
 }
