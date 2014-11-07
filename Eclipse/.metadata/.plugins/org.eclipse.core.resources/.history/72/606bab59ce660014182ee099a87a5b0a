@@ -1,6 +1,0 @@
-public class DBController implements IDBController {
-
-    public void save(int searchID, String naturalLanguage, JsonObject requests, Collections<Person> result) {
-        throw new UnsupportedOperationException();
-    }
-}
