@@ -1,0 +1,75 @@
+/******************************************************************************
+ * Modellierung von Informationssystemen - Search 4 Facebook 
+ ******************************************************************************
+ * MIP-Group:       1
+ * Component:       Main
+ *
+ * Authors:         ----
+ *
+ * Updated:         2014.11.07
+ *
+ * Version:         0.01
+ ******************************************************************************
+ * Description:     ----
+ *****************************************************************************/
+
+/******************************************************************************
+ *                                 Package                                    *
+ *****************************************************************************/
+
+package main;
+
+/******************************************************************************
+ *                                 Imports                                    *
+ *****************************************************************************/
+
+import java.util.Collection;
+
+import common.*;
+import gui.*;
+import controller.*;
+import parser.*;
+import facebookWrapper.*;
+import dbController.*;
+
+/******************************************************************************
+ *                              Class Definition                              *
+ *****************************************************************************/
+
+public class main
+{
+    
+/******************************************************************************
+ *                         Construction & Initialization                      *
+ *****************************************************************************/
+	
+	public static void main(String[] args)
+	{
+		
+	}
+	
+	public static void initProduction()
+	{
+		
+	}
+	
+	public static void initTest1()
+	{
+		IParser          parser          = new Parser         (); 
+		IFacebookWrapper facebookWrapper = new FacebookWrapper();
+		IDBController    dbController    = new DBController   ();
+		
+		ISearch4Facebook search4Facebook = new Controller     (parser, facebookWrapper, dbController);
+		
+		GUI              gui             = new GUI            (search4Facebook);
+	}
+	
+/******************************************************************************
+ *                               Test Methods                                 *
+ *****************************************************************************/
+	
+	public static void test1()
+	{
+		
+	}
+}

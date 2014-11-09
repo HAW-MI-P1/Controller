@@ -1,0 +1,10 @@
+public class Parser implements IParser {
+
+/******************************************************************************
+ *                              Public Methods                                *
+ *****************************************************************************/
+	
+    public JsonObject parse(String naturalLanguage) {
+        throw new UnsupportedOperationException();
+    }
+}

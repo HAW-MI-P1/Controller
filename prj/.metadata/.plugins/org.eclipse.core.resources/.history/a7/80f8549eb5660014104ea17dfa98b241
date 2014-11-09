@@ -1,0 +1,4 @@
+public interface IFacebookWrapper {
+
+    public Collection<Person> collect(JsonObject requests);
+}

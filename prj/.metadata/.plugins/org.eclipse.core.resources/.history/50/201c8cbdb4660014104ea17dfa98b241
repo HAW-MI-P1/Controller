@@ -1,0 +1,72 @@
+/******************************************************************************
+ * Modellierung von Informationssystemen - Search 4 Facebook 
+ ******************************************************************************
+ * MIP-Group:       1
+ * Component:       Common
+ *
+ * Authors:         ----
+ *
+ * Updated:         2014.11.07
+ *
+ * Version:         0.01
+ ******************************************************************************
+ * Description:     ----
+ *****************************************************************************/
+
+/******************************************************************************
+ *                                 Package                                    *
+ *****************************************************************************/
+
+package common;
+
+/******************************************************************************
+ *                              Class Definition                              *
+ *****************************************************************************/
+
+public class JsonObject
+{
+	
+/******************************************************************************
+ *                                  Fields                                    *
+ *****************************************************************************/
+	
+	private String requests;
+    
+/******************************************************************************
+ *                              Getter / Setter                               *
+ *****************************************************************************/
+
+	public String getFacebookID()                  { return facebookID;              }
+	public void   setFacebookID(String facebookID) {   this.facebookID = facebookID; }
+	
+	public String getFirstname ()                  { return firstname;               }
+	public void   setFirstname (String firstname)  {   this.firstname   = firstname; }
+	
+	public String getLastname  ()                  { return lastname;                }
+	public void   setLastname  (String lastname)   {   this.lastname    = lastname;  }
+	
+	public String getCity      ()                  { return city;                    }
+	public void   setCity      (String city)       {   this.city        = city;      }
+    
+/******************************************************************************
+ *                         Construction & Initialization                      *
+ *****************************************************************************/
+
+	public JsonObject(String requests)
+	{
+		this.facebookID = facebookID;
+		this.firstname  = firstname;
+		this.lastname   = lastname;
+		this.city       = city;
+	}
+	
+/******************************************************************************
+ *                              Public Methods                                *
+ *****************************************************************************/
+	
+	@Override
+	public String toString()
+	{
+		return "Person [requests=" + requests + "]";
+	}
+}

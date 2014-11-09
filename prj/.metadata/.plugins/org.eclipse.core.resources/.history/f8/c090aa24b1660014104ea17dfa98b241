@@ -1,0 +1,24 @@
+/******************************************************************************
+ * Modellierung von Informationssystemen 
+ ******************************************************************************
+ * Group:           1
+ * Component:       Datatype definitions
+ *
+ * Authors:         Hagen.Hasberg@Haw-Hamburg.de
+ *
+ * Created:         2014.05.19
+ * Updated:         2014.11.06
+ *
+ * Version:         1.00
+ ******************************************************************************
+ * Description:     ----
+ *****************************************************************************/
+
+public class GUI {
+    public ISearch4Facebook search4Facebook;
+    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+}

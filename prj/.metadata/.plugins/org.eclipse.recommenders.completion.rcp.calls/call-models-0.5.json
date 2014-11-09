@@ -1,0 +1,12 @@
+{
+  "D:\\Daten\\Dropbox\\Master\\2. Semester WS14\\MI\\prj\\ControllerDevel\\src": {
+    "location": "D:\\Daten\\Dropbox\\Master\\2. Semester WS14\\MI\\prj\\ControllerDevel\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\Daten\\Dropbox\\Master\\2. Semester WS14\\MI\\prj\\ControllerDevel\\src\u0027. Skipped."
+  },
+  "C:\\Program Files\\Java\\jre7\\lib\\rt.jar": {
+    "location": "C:\\Program Files\\Java\\jre7\\lib\\rt.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Program Files\\Java\\jre7\\lib\\rt.jar\u0027. Neither fingerprint \u0027442144fb304e0895e42527f0d796dc6a070afc49\u0027 nor symbolic name \u0027jre\u0027 are known."
+  }
+}

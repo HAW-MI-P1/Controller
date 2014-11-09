@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="parser.IParser"/>
+<fullyQualifiedTypeName name="common.Person"/>
+<fullyQualifiedTypeName name="javax.swing.text.html.HTMLEditorKit.Parser"/>
+<fullyQualifiedTypeName name="facebookWrapper.IFacebookWrapper"/>
+<fullyQualifiedTypeName name="dbController.IDBController"/>
+<fullyQualifiedTypeName name="controller.ISearch4Facebook"/>
+<fullyQualifiedTypeName name="common.Logger"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="common.ComponentID"/>
+<fullyQualifiedTypeName name="common.JsonObject"/>
+</qualifiedTypeNameHistroy>

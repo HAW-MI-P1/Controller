@@ -1,0 +1,6 @@
+public class FacbookWrapper implements IFacebookWrapper {
+
+    public Collection<Person> collect(JsonObject requests) {
+        throw new UnsupportedOperationException();
+    }
+}
