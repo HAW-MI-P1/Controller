@@ -6,4 +6,5 @@
 <fullyQualifiedTypeName name="org.opencv.highgui.Highgui"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
 </qualifiedTypeNameHistroy>
