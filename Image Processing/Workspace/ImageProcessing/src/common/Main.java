@@ -14,15 +14,18 @@ public class Main
 {
 	private static final int RANGE_UNDER = 25;
 	private static final int RANGE_OVER  = 25;
+	private static int gCount = 0;
 	
 	public static void main(String[] args) 
 	{
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		
-		Mat ele0        = Highgui.imread("ele0.jpg");
-		Mat ele0Section = Highgui.imread("ele0_section.jpg");
-		Mat ele1        = Highgui.imread("ele1.jpg");
-		Mat ele1Section = Highgui.imread("ele1_section.jpg");
+		Mat test        = Highgui.imread("test.png");
+		Mat testSection = Highgui.imread("test_section.png");
+		//Mat ele0        = Highgui.imread("ele0.jpg");
+		//Mat ele0Section = Highgui.imread("ele0_section.jpg");
+		//Mat ele1        = Highgui.imread("ele1.jpg");
+		//Mat ele1Section = Highgui.imread("ele1_section.jpg");
 		//Mat ele2 = Highgui.imread("ele2.jpg");
 		//Mat ele3 = Highgui.imread("ele3.jpg");
 		
@@ -32,10 +35,11 @@ public class Main
 		//System.out.println("ele1 compare ele0: " + imageCompare(ele1, ele0) + " %");
 		//System.out.println("ele2 compare ele3: " + imageCompare(ele2, ele3) + " %");
 		
-		System.out.println("ele0 compare ele0Section: " + imageSearch(ele0, ele0Section) + " %");
-		System.out.println("ele0 compare ele1Section: " + imageSearch(ele0, ele1Section) + " %");
-		System.out.println("ele1 compare ele0Section: " + imageSearch(ele1, ele0Section) + " %");
-		System.out.println("ele1 compare ele1Section: " + imageSearch(ele1, ele1Section) + " %");
+		System.out.println("test compare testSection: " + imageSearch(test, testSection) + " %");
+		//System.out.println("ele0 compare ele0Section: " + imageSearch(ele0, ele0Section) + " %");
+		//System.out.println("ele0 compare ele1Section: " + imageSearch(ele0, ele1Section) + " %");
+		//System.out.println("ele1 compare ele0Section: " + imageSearch(ele1, ele0Section) + " %");
+		//System.out.println("ele1 compare ele1Section: " + imageSearch(ele1, ele1Section) + " %");
 	}
 	
 	/*
@@ -84,6 +88,10 @@ public class Main
 				linesFound[lineImage] = true;
 				lineSection++;
 			}
+			else
+			{
+				lineSection = 0;
+			}
 			
 			if(lineSection > section.rows())
 			{
@@ -99,11 +107,62 @@ public class Main
 	private static boolean foundLine(Mat image, Mat section)
 	{
 		int hits        = 0;
-		int sectionCell = 0;
+		//int sectionCell = 0;
 		
-		//System.out.println(image.dump());
-		//System.out.println();
-		//System.out.println(section.dump());
+		/*
+		 * TODO: check line 
+		 * TODO: begin at 0 and check search line
+		 *       => not found begin next pixel and check search line
+		 *       => exp.
+		 */
+		
+		gCount++;
+		
+		if(gCount >= 10)
+		{
+			gCount = gCount + 1 - 1;
+		}
+		
+		for(int imageCell = 0; imageCell < image.cols(); imageCell++)
+		{
+			int before = imageCell;
+			
+			hits = 0;
+			
+			for(int sectionCell = 0; sectionCell < section.cols(); sectionCell++)
+			{
+				int imageBlue    = (int)image.get(0,  imageCell)[0];
+				int imageGreen   = (int)image.get(0,  imageCell)[1];
+				int imageRed     = (int)image.get(0,  imageCell)[2];
+				int sectionBlue  = (int)section.get(0, sectionCell)[0];
+				int sectionGreen = (int)section.get(0, sectionCell)[1];
+				int sectionRed   = (int)section.get(0, sectionCell)[2];
+				
+				if(sectionRed   != imageRed   ||
+				   sectionGreen != imageGreen ||
+				   sectionBlue  != imageBlue)
+				{
+					imageCell = before;
+					break;
+				}
+				
+				imageCell++;
+				hits++;
+			}
+			
+			imageCell = before;
+			
+			if(hits == section.cols())
+			{
+				break;
+			}
+		}
+		
+		/*System.out.println(image.dump());
+		System.out.println(section.dump());
+		System.out.println();
+		
+		int cols = image.cols();
 		
 		for(int imageCell = 0; imageCell < image.cols(); imageCell++)
 		{
@@ -114,9 +173,14 @@ public class Main
 			int sectionGreen = (int)section.get(0, sectionCell)[1];
 			int sectionBlue  = (int)section.get(0, sectionCell)[2];
 			
-			if(sectionRed   >= imageRed   - RANGE_UNDER && sectionRed   <= imageRed   + RANGE_OVER &&
-			   sectionGreen >= imageGreen - RANGE_UNDER && sectionGreen <= imageGreen + RANGE_OVER &&
-			   sectionBlue  >= imageBlue  - RANGE_UNDER && sectionBlue  <= imageBlue  + RANGE_OVER)
+			
+			
+			//if(sectionRed   >= imageRed   - RANGE_UNDER && sectionRed   <= imageRed   + RANGE_OVER &&
+			//   sectionGreen >= imageGreen - RANGE_UNDER && sectionGreen <= imageGreen + RANGE_OVER &&
+			//   sectionBlue  >= imageBlue  - RANGE_UNDER && sectionBlue  <= imageBlue  + RANGE_OVER)
+			if(sectionRed   == imageRed   &&
+			   sectionGreen == imageGreen &&
+			   sectionBlue  == imageBlue)
 			{
 				sectionCell++;
 				hits++;
@@ -131,8 +195,8 @@ public class Main
 				sectionCell = 0;
 				hits        = 0;
 			}
-		}
+		}*/
 		
-		return (hits == section.cols());
+		return false;//(hits == section.cols());
 	}
 }
