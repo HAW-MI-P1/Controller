@@ -13,4 +13,11 @@
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="common.ComponentID"/>
 <fullyQualifiedTypeName name="common.JsonObject"/>
+<fullyQualifiedTypeName name="de.haw.model.ComponentID"/>
+<fullyQualifiedTypeName name="de.haw.app.Logger"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="de.haw.parser.ParserImpl"/>
+<fullyQualifiedTypeName name="de.haw.wrapper.WrapperImpl"/>
+<fullyQualifiedTypeName name="de.haw.db.DBImpl"/>
 </qualifiedTypeNameHistroy>

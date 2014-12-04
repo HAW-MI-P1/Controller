@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Program Files/Java/jre1.8.0_25/lib/rt.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
 org.eclipse.jdt.core.codeComplete.argumentPrefixes=
 org.eclipse.jdt.core.codeComplete.argumentSuffixes=
 org.eclipse.jdt.core.codeComplete.fieldPrefixes=

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
-<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1416772194099_3" label="FBSearch" name="FBSearch">
-<item elementID="=FBSearch" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1416772194099_3" label="FBSearch" name="FBSearch"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1415386899174_0" label="Window Working Set" name="Aggregate for window 1415386899174"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1415393207596_1" label="Window Working Set" name="Aggregate for window 1415393207596"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1415393872850_2" label="Window Working Set" name="Aggregate for window 1415393872850"/>

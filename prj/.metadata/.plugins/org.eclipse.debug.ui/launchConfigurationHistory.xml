@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchHistory>
-<launchGroup id="org.eclipse.ui.externaltools.launchGroup">
+<launchGroup id="org.eclipse.debug.ui.launchGroup.debug">
 <mruHistory/>
 <favorites/>
 </launchGroup>
@@ -8,7 +8,7 @@
 <mruHistory/>
 <favorites/>
 </launchGroup>
-<launchGroup id="org.eclipse.debug.ui.launchGroup.debug">
+<launchGroup id="org.eclipse.ui.externaltools.launchGroup">
 <mruHistory/>
 <favorites/>
 </launchGroup>
