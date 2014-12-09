@@ -5,10 +5,14 @@ package common;
  * http://docs.opencv.org/doc/tutorials/introduction/java_eclipse/java_eclipse.html#java-eclipse
  */
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 
 import org.opencv.core.*;
+import org.opencv.core.Core.MinMaxLocResult;
 import org.opencv.highgui.Highgui;
+import org.opencv.imgproc.Imgproc;
 
 public class Main 
 {
@@ -16,187 +20,101 @@ public class Main
 	private static final int RANGE_OVER  = 25;
 	private static int gCount = 0;
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws IOException 
 	{
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		Point[]  locations;
+		Mat[]    images;
 		
-		Mat test        = Highgui.imread("test.png");
-		Mat testSection = Highgui.imread("test_section.png");
-		//Mat ele0        = Highgui.imread("ele0.jpg");
-		//Mat ele0Section = Highgui.imread("ele0_section.jpg");
-		//Mat ele1        = Highgui.imread("ele1.jpg");
-		//Mat ele1Section = Highgui.imread("ele1_section.jpg");
-		//Mat ele2 = Highgui.imread("ele2.jpg");
-		//Mat ele3 = Highgui.imread("ele3.jpg");
+		String searchString = "lena";
+		Imshow window       = new Imshow("search");
+		Mat    search       = Highgui.imread("test/search0.png");
 		
-		//System.out.println("ele0 compare ele0: " + imageCompare(ele0, ele0) + " %");
-		//System.out.println("ele1 compare ele1: " + imageCompare(ele1, ele1) + " %");
-		//System.out.println("ele0 compare ele1: " + imageCompare(ele0, ele1) + " %");
-		//System.out.println("ele1 compare ele0: " + imageCompare(ele1, ele0) + " %");
-		//System.out.println("ele2 compare ele3: " + imageCompare(ele2, ele3) + " %");
+		File folder = new File("images/" + searchString);
 		
-		System.out.println("test compare testSection: " + imageSearch(test, testSection) + " %");
-		//System.out.println("ele0 compare ele0Section: " + imageSearch(ele0, ele0Section) + " %");
-		//System.out.println("ele0 compare ele1Section: " + imageSearch(ele0, ele1Section) + " %");
-		//System.out.println("ele1 compare ele0Section: " + imageSearch(ele1, ele0Section) + " %");
-		//System.out.println("ele1 compare ele1Section: " + imageSearch(ele1, ele1Section) + " %");
-	}
-	
-	/*
-	 * Must be same size
-	 * TODO: Different size
-	 * TODO: Different position
-	 */
-	private static int imageCompare(Mat image0, Mat image1)
-	{
-		int hits = 0;
-		
-		if(image0.rows() != image1.rows() || image0.cols() != image1.cols())
+		if(!folder.exists())
 		{
-			return -1;
+			System.out.println("Folder doesnt exist.");
+			return;
 		}
 		
-		for (int i = 0; i < image0.rows(); i++) 
+		if(folder.listFiles().length <= 0)
 		{
-			for (int j = 0; j < image0.cols(); j++) 
-			{
-				if((int)image0.get(i, j)[0] == (int)image1.get(i, j)[0])
-				{
-					hits++;
-				}
-			}
+			System.out.println("No files in folder.");
+			return;
 		}
 		
-		return (int)(((double)hits / (image0.rows() * image0.cols())) * 100);
-	}
-	
-	/*
-	 * Must be same size
-	 * TODO: Different size
-	 */
-	private static int imageSearch(Mat image, Mat section)
-	{
-		int lineSection = 0;
-		boolean linesFound[] = new boolean[image.rows()];
+		images    = new Mat[folder.listFiles().length];
+		locations = new Point[folder.listFiles().length];
 		
-		Arrays.fill(linesFound, false);
+		for(int i = 0; i < folder.listFiles().length; i++)
+		{
+			System.out.println(folder.listFiles()[i].getPath());
+			images[i]    = Highgui.imread(folder.listFiles()[i].getPath());
+			locations[i] = imageSearch(search, images[i]);
+			
+			Core.rectangle(search, locations[i], new Point(locations[i].x + images[i].cols(), 
+					       locations[i].y + images[i].rows()), new Scalar(0, 255, 0));
+		}
 
-		for(int lineImage = 0; lineImage < image.rows(); lineImage++)
-		{
-			if(foundLine(image.row(lineImage), section.row(lineSection)))
-			{
-				linesFound[lineImage] = true;
-				lineSection++;
-			}
-			else
-			{
-				lineSection = 0;
-			}
-			
-			if(lineSection > section.rows())
-			{
-				break;
-			}
-		}
+		// search lena
+		window.showImage(search);
 		
-		//analyze array....
+		// search elephant		
+		//Mat    search1 = Highgui.imread("test/search1.jpg");
+		//window.showImage(search);
 		
-		return 0;
+		// search elephant		
+		//Mat    search2 = Highgui.imread("test/search2.jpg");
+		//window.showImage(search);
+		
+		// search lion		
+		//Mat    search3 = Highgui.imread("test/search3.jpg");
+		//window.showImage(search);
+		
+		// close all...
+		System.in.read();
+		System.exit(0);
 	}
 	
-	private static boolean foundLine(Mat image, Mat section)
+	private static Point imageSearch(Mat source, Mat template)
 	{
-		int hits        = 0;
-		//int sectionCell = 0;
+		//TODO source greater than template -> resize?
+		//TODO same image type -> convert?
 		
-		/*
-		 * TODO: check line 
-		 * TODO: begin at 0 and check search line
-		 *       => not found begin next pixel and check search line
-		 *       => exp.
-		 */
-		
-		gCount++;
-		
-		if(gCount >= 10)
+	
+		if(source.cols() < template.cols())
 		{
-			gCount = gCount + 1 - 1;
+			//resize
 		}
 		
-		for(int imageCell = 0; imageCell < image.cols(); imageCell++)
+		if(source.rows() < template.rows())
 		{
-			int before = imageCell;
-			
-			hits = 0;
-			
-			for(int sectionCell = 0; sectionCell < section.cols(); sectionCell++)
-			{
-				int imageBlue    = (int)image.get(0,  imageCell)[0];
-				int imageGreen   = (int)image.get(0,  imageCell)[1];
-				int imageRed     = (int)image.get(0,  imageCell)[2];
-				int sectionBlue  = (int)section.get(0, sectionCell)[0];
-				int sectionGreen = (int)section.get(0, sectionCell)[1];
-				int sectionRed   = (int)section.get(0, sectionCell)[2];
-				
-				if(sectionRed   != imageRed   ||
-				   sectionGreen != imageGreen ||
-				   sectionBlue  != imageBlue)
-				{
-					imageCell = before;
-					break;
-				}
-				
-				imageCell++;
-				hits++;
-			}
-			
-			imageCell = before;
-			
-			if(hits == section.cols())
-			{
-				break;
-			}
+			//resize
 		}
 		
-		/*System.out.println(image.dump());
-		System.out.println(section.dump());
-		System.out.println();
+		int             cols           = source.cols() - template.cols() + 1;
+		int             rows           = source.rows() - template.rows() + 1;
+		Mat             result         = new Mat(cols, rows, CvType.CV_32FC1);
+		Point           location       = null;
+		MinMaxLocResult minMaxLocation = null;
 		
-		int cols = image.cols();
+		// matching an normalize
+		Imgproc.matchTemplate(source, template, result, Imgproc.TM_CCOEFF);
+		Core.normalize(result, result, 0, 1, Core.NORM_MINMAX, -1, new Mat());
 		
-		for(int imageCell = 0; imageCell < image.cols(); imageCell++)
-		{
-			int imageRed     = (int)image.get(0,  imageCell)[0];
-			int imageGreen   = (int)image.get(0,  imageCell)[1];
-			int imageBlue    = (int)image.get(0,  imageCell)[2];
-			int sectionRed   = (int)section.get(0, sectionCell)[0];
-			int sectionGreen = (int)section.get(0, sectionCell)[1];
-			int sectionBlue  = (int)section.get(0, sectionCell)[2];
-			
-			
-			
-			//if(sectionRed   >= imageRed   - RANGE_UNDER && sectionRed   <= imageRed   + RANGE_OVER &&
-			//   sectionGreen >= imageGreen - RANGE_UNDER && sectionGreen <= imageGreen + RANGE_OVER &&
-			//   sectionBlue  >= imageBlue  - RANGE_UNDER && sectionBlue  <= imageBlue  + RANGE_OVER)
-			if(sectionRed   == imageRed   &&
-			   sectionGreen == imageGreen &&
-			   sectionBlue  == imageBlue)
-			{
-				sectionCell++;
-				hits++;
-				
-				if(hits == section.cols())
-				{
-					break;
-				}
-			}
-			else
-			{
-				sectionCell = 0;
-				hits        = 0;
-			}
-		}*/
+		// find best match
+		minMaxLocation = Core.minMaxLoc(result);
 		
-		return false;//(hits == section.cols());
+		// method = Imgproc.TM_SQDIFF || Imgproc.TM_SQDIFF_NORMED
+		// location = minMaxLocation.minLoc;
+		// else
+		location = minMaxLocation.maxLoc;
+		
+		//TODO Check location, valid?
+		// calculate percent
+		// else return null
+
+		return location;
 	}
 }
