@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.opencv.core.Core"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="org.opencv.highgui.Highgui"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="org.opencv.core.CvType"/>
 <fullyQualifiedTypeName name="org.opencv.core.Core.MinMaxLocResult"/>
 <fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.opencv.core.CvType"/>
+<fullyQualifiedTypeName name="org.opencv.utils.Converters"/>
+<fullyQualifiedTypeName name="org.opencv.core.Algorithm"/>
 <fullyQualifiedTypeName name="org.opencv.core.Mat"/>
+<fullyQualifiedTypeName name="org.opencv.core.Core"/>
+<fullyQualifiedTypeName name="org.opencv.imgproc.Subdiv2D"/>
+<fullyQualifiedTypeName name="org.opencv.features2d.Features2d"/>
+<fullyQualifiedTypeName name="org.opencv.features2d.GenericDescriptorMatcher"/>
+<fullyQualifiedTypeName name="org.opencv.gpu.Gpu"/>
+<fullyQualifiedTypeName name="org.opencv.contrib.Contrib"/>
 <fullyQualifiedTypeName name="org.opencv.imgproc.Imgproc"/>
 </qualifiedTypeNameHistroy>

@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 import org.opencv.core.*;
 import org.opencv.core.Core.MinMaxLocResult;
-import org.opencv.highgui.Highgui;
+import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
 public class Main 
@@ -28,7 +28,7 @@ public class Main
 		
 		String searchString = "lena";
 		Imshow window       = new Imshow("search");
-		Mat    search       = Highgui.imread("test/search0.png");
+		Mat    search       = Imgcodecs.imread("test/search0.png");
 		
 		File folder = new File("images/" + searchString);
 		
@@ -50,13 +50,15 @@ public class Main
 		for(int i = 0; i < folder.listFiles().length; i++)
 		{
 			System.out.println(folder.listFiles()[i].getPath());
-			images[i]    = Highgui.imread(folder.listFiles()[i].getPath());
+			images[i]    = Imgcodecs.imread(folder.listFiles()[i].getPath());
 			locations[i] = imageSearch(search, images[i]);
 			
-			Core.rectangle(search, locations[i], new Point(locations[i].x + images[i].cols(), 
-					       locations[i].y + images[i].rows()), new Scalar(0, 255, 0));
+			Imgproc.rectangle(search, locations[i], new Point(locations[i].x + images[i].cols(), 
+					          locations[i].y + images[i].rows()), new Scalar(0, 255, 0));
 		}
-
+		
+		
+		
 		// search lena
 		window.showImage(search);
 		
