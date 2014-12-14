@@ -44,20 +44,35 @@ public class Main
 			return;
 		}
 		
-		images    = new Mat[folder.listFiles().length];
 		locations = new Point[folder.listFiles().length];
 		
 		for(int i = 0; i < folder.listFiles().length; i++)
 		{
 			System.out.println(folder.listFiles()[i].getPath());
-			images[i]    = Imgcodecs.imread(folder.listFiles()[i].getPath());
-			locations[i] = imageSearch(search, images[i]);
+			Mat image = Imgcodecs.imread(folder.listFiles()[i].getPath());
+
+			//Logpolar -> Normalize for scale/rotation
+			Mat logPolarSearch = new Mat(search.rows(), search.cols(), CvType.CV_32FC1);
+			Mat logPolarImage = new Mat(image.rows(), image.cols(), CvType.CV_32FC1);
+			Imgproc.logPolar(search, logPolarSearch, 
+					         new Point(logPolarSearch.cols() / 2, logPolarSearch.rows() / 2), 
+					         1, Imgproc.CV_WARP_INVERSE_MAP);
 			
-			Imgproc.rectangle(search, locations[i], new Point(locations[i].x + images[i].cols(), 
-					          locations[i].y + images[i].rows()), new Scalar(0, 255, 0));
+			Imgproc.logPolar(image, logPolarImage, 
+			         new Point(logPolarImage.cols() / 2, logPolarImage.rows() / 2), 
+			         1, Imgproc.CV_WARP_INVERSE_MAP);
+			
+			locations[i] = imageSearch(logPolarSearch, logPolarImage);
+			
+			if(locations[i] != null)
+			{
+				Imgproc.rectangle(search, locations[i], new Point(locations[i].x + image.cols(), 
+					          	locations[i].y + image.rows()), new Scalar(0, 255, 0));
+				
+				System.out.println("Match!");
+				break;
+			}
 		}
-		
-		
 		
 		// search lena
 		window.showImage(search);
@@ -82,9 +97,6 @@ public class Main
 	private static Point imageSearch(Mat source, Mat template)
 	{
 		//TODO source greater than template -> resize?
-		//TODO same image type -> convert?
-		
-	
 		if(source.cols() < template.cols())
 		{
 			//resize
@@ -101,9 +113,10 @@ public class Main
 		Point           location       = null;
 		MinMaxLocResult minMaxLocation = null;
 		
-		// matching an normalize
+		// matching, normalize
 		Imgproc.matchTemplate(source, template, result, Imgproc.TM_CCOEFF);
 		Core.normalize(result, result, 0, 1, Core.NORM_MINMAX, -1, new Mat());
+		Imgproc.threshold(result, result, 0.9, 1, 2);
 		
 		// find best match
 		minMaxLocation = Core.minMaxLoc(result);
@@ -112,11 +125,13 @@ public class Main
 		// location = minMaxLocation.minLoc;
 		// else
 		location = minMaxLocation.maxLoc;
-		
-		//TODO Check location, valid?
-		// calculate percent
-		// else return null
 
+		// TODO Border Y-Axis?
+		if(location.y <= 0.1)
+		{
+			return null;
+		}
+		
 		return location;
 	}
 }
