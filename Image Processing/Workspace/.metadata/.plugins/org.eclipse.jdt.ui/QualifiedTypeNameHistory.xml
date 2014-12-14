@@ -5,11 +5,9 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="org.opencv.core.Core.MinMaxLocResult"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.opencv.core.CvType"/>
 <fullyQualifiedTypeName name="org.opencv.core.Algorithm"/>
-<fullyQualifiedTypeName name="org.opencv.core.Mat"/>
 <fullyQualifiedTypeName name="org.opencv.imgproc.Subdiv2D"/>
 <fullyQualifiedTypeName name="org.opencv.features2d.Features2d"/>
 <fullyQualifiedTypeName name="org.opencv.features2d.GenericDescriptorMatcher"/>
@@ -20,5 +18,8 @@
 <fullyQualifiedTypeName name="org.opencv.imgcodecs.Imgcodecs"/>
 <fullyQualifiedTypeName name="org.opencv.core.Core"/>
 <fullyQualifiedTypeName name="org.opencv.core.Rect"/>
+<fullyQualifiedTypeName name="org.opencv.core.Core.MinMaxLocResult"/>
 <fullyQualifiedTypeName name="org.opencv.imgproc.Imgproc"/>
+<fullyQualifiedTypeName name="org.opencv.core.Mat"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
 </qualifiedTypeNameHistroy>
