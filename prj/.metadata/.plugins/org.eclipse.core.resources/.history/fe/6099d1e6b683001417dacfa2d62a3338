@@ -1,0 +1,80 @@
+package de.haw.controller;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import de.haw.db.DBImpl;
+import de.haw.model.exception.IllegalArgumentException;
+import de.haw.model.exception.InternalErrorException;
+
+public class ExceptionTest
+{
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp()
+	{
+		
+	}
+	
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@After
+	public void tearDorw() throws Exception {
+		try
+		{ this.db.close(); } 
+		catch (Exception e) {}
+	}
+
+	@Test
+	public void testPutSuccess() {
+		int keyHash = (int) (Math.random() * 1000000);
+		db.put(keyHash, "value");
+	}
+	
+	@Test
+	public void testPutFailSameKey() {
+		try {
+			int keyHash = (int) (Math.random() * 1000000);
+			db.put(keyHash, "value");
+			db.put(keyHash, "value");
+			fail();
+		} 
+		catch (InternalErrorException e) {}
+	}
+	
+	@Test
+	public void testPutFailKeyNull() {
+		try {
+			db.put(0, "value");
+			fail();
+		} 
+		catch (IllegalArgumentException e) {}
+	}
+	
+	@Test
+	public void testPutFailValueNull() {
+		try {
+			int keyHash = (int) (Math.random() * 1000000);
+			db.put(keyHash, null);
+			fail();
+		} 
+		catch (IllegalArgumentException e) {}
+	}
+	
+	@Test
+	public void testPutFailValueEmpty() {
+		try {
+			int keyHash = (int) (Math.random() * 1000000);
+			db.put(keyHash, "");
+			fail();
+		} 
+		catch (IllegalArgumentException e) {}
+	}
+
+}

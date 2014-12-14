@@ -1,0 +1,57 @@
+/******************************************************************************
+ * Modellierung von Informationssystemen - FBSearch
+ ******************************************************************************
+ * MIP-Group:       1
+ * Component:       Model
+ *
+ * Authors:         René, Hagen
+ *
+ * Updated:         2014.11.07
+ *
+ * Version:         0.01
+ ******************************************************************************
+ * Description:     ----
+ *****************************************************************************/
+
+/******************************************************************************
+ *                                 Package                                    *
+ *****************************************************************************/
+
+package de.haw.app;
+
+/******************************************************************************
+ *                                 Imports                                    *
+ *****************************************************************************/
+
+import java.io.File;
+
+import de.haw.model.ComponentID;
+
+/******************************************************************************
+ *                              Class Definition                              *
+ *****************************************************************************/
+
+public class Logger
+{
+	private static final String FILENAME = "FBSearchLog" + "asd" + ".log";
+	
+/******************************************************************************
+ *                              Public Methods                                *
+ *****************************************************************************/
+	
+    public static void log(String msg, ComponentID component)
+    {
+        System.out.println(component.toString() + ": " + msg);
+        
+        File logfile = new File(FILENAME); 
+        if(logfile.exists())
+        {
+        	
+        }
+        writer = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream("filename.txt"), "utf-8"));
+          writer.write("Something");
+        // TODO log to file?
+        // TODO log to gui?
+    }
+}

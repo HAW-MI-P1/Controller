@@ -1,0 +1,32 @@
+package de.haw.controller;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class ExceptionTest
+{
+	@Before
+	public void setUp()
+	{
+		
+	}
+	
+	@After
+	public void tearDorw()
+	{
+	
+	}
+
+	@Test
+	public void testSearch()
+	{
+		
+	}
+	
+	@Test
+	public void testSearchExtended()
+	{
+		
+	}
+}

@@ -1,0 +1,17 @@
+package de.haw;
+
+import java.util.Collection;
+
+import de.haw.detector.ImageDetector;
+import de.haw.model.types.Type;
+
+public class ImageDetectorImpl implements ImageDetector {
+
+	@Override
+	public Collection<Type> detectObject(Collection<Type> result,
+			String objectName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

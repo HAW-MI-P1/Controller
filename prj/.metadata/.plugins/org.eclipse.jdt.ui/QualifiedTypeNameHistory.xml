@@ -16,8 +16,19 @@
 <fullyQualifiedTypeName name="de.haw.model.ComponentID"/>
 <fullyQualifiedTypeName name="de.haw.app.Logger"/>
 <fullyQualifiedTypeName name="org.json.JSONObject"/>
-<fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="de.haw.parser.ParserImpl"/>
 <fullyQualifiedTypeName name="de.haw.wrapper.WrapperImpl"/>
 <fullyQualifiedTypeName name="de.haw.db.DBImpl"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.Writer"/>
+<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+<fullyQualifiedTypeName name="java.io.OutputStreamWriter"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="org.joda.time.DateTime"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="de.haw.model.types.Type"/>
+<fullyQualifiedTypeName name="de.haw.detector.ImageDetector"/>
+<fullyQualifiedTypeName name="de.haw.detector.Detector"/>
+<fullyQualifiedTypeName name="de.haw.detector.DetectorImpl"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
 </qualifiedTypeNameHistroy>

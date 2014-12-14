@@ -1,0 +1,53 @@
+/******************************************************************************
+ * Modellierung von Informationssystemen - FBSearch
+ ******************************************************************************
+ * MIP-Group:       1
+ * Component:       Controller
+ *
+ * Authors:         Ren�, Hagen
+ *
+ * Updated:         2014.11.07
+ *
+ * Version:         0.01
+ ******************************************************************************
+ * Description:     ----
+ *****************************************************************************/
+
+/******************************************************************************
+ *                                 Package                                    *
+ *****************************************************************************/
+
+package de.haw.detector;
+
+/******************************************************************************
+ *                                 Imports                                    *
+ *****************************************************************************/
+
+import de.haw.app.Logger;
+import de.haw.db.DB;
+import de.haw.filter.Filter;
+import de.haw.model.ComponentID;
+import de.haw.model.types.Type;
+import de.haw.parser.Parser;
+
+import org.json.JSONObject;
+
+import java.util.Collection;
+
+/******************************************************************************
+ *                              Class Definition                              *
+ *****************************************************************************/
+
+public class ImageDetectorImpl implements ImageDetector
+{
+
+/******************************************************************************
+ *                              Public Methods                                *
+ *****************************************************************************/
+
+	@Override
+	public Collection<Type> detectObject(Collection<Type> result, String objectName)
+	{
+		return null;
+	}
+}

@@ -1,0 +1,38 @@
+package de.haw.controller;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import de.haw.db.DBImpl;
+import de.haw.model.exception.IllegalArgumentException;
+import de.haw.model.exception.InternalErrorException;
+
+public class ExceptionTest
+{
+	@Before
+	public void setUp()
+	{
+		
+	}
+	
+	@After
+	public void tearDorw()
+	{
+	
+	}
+
+	@Test
+	public void testSearch()
+	{
+		
+	}
+	
+	@Test
+	public void testSearch()
+	{
+		
+	}
+}
