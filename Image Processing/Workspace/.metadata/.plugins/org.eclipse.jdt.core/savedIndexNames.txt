@@ -1,16 +1,8 @@
-INDEX VERSION 1.127+C:\Data\MI_Controller\Image Processing\Workspace\.metadata\.plugins\org.eclipse.jdt.core
-4108727661.index
-1115467115.index
-3974580528.index
-1299022128.index
-3894743281.index
-163172794.index
-305854171.index
-3133528496.index
-1995173708.index
-3065916431.index
-1498219845.index
-4155206848.index
-4041092966.index
+INDEX VERSION 1.127+D:\GIT-Projekte\MI_Controller\Image Processing\Workspace\.metadata\.plugins\org.eclipse.jdt.core
+3829748403.index
+3549880408.index
+1369127545.index
+2705315894.index
 2398732082.index
-30765161.index
+3894743281.index
+735681076.index
