@@ -62,6 +62,8 @@ public class WebPicture
 		inputStream.close();
 		byteStream.close();
 		
+		System.out.println("[WEB_PICTURE] Download image from " + this.url.toString() + " completed.");
+		
 		// download ok!
 		this.isDownloaded = true;
 		this.picture = byteStream.toByteArray();
