@@ -1,0 +1,79 @@
+package common;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+
+public class WebPicture 
+{
+	private static final String TEMP_PATH = "temp.dat";
+	
+	private URL     url;
+	private byte[]  picture;
+	private boolean isDownloaded;
+	
+	public WebPicture(URL url)
+	{
+		this.url          = url;
+		this.isDownloaded = false;
+		this.picture      = null;
+	}
+	
+	public URL getUrl()
+	{
+		return this.url;
+	}
+	
+	public byte[] getPicture() throws IOException
+	{
+		if(!this.isDownloaded)
+		{
+			downloadImage(this.url);
+		}
+		
+		return this.picture;
+	}
+	
+	public boolean isDownloaded()
+	{
+		return this.isDownloaded;
+	}
+	
+	public String pictureToFile() throws IOException
+	{
+		FileOutputStream fileStream = new FileOutputStream("")
+		
+		if(!this.isDownloaded)
+		{
+			downloadImage(this.url);
+		}
+		
+		// byte to file
+		
+		return TEMP_PATH;
+	}
+	
+	private byte[] downloadImage(URL url) throws IOException
+	{
+		InputStream           inputStream  = new BufferedInputStream(url.openStream());
+		ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+
+		for (int i = 0; (i = inputStream.read()) != -1;) 
+		{
+			byteStream.write(i);
+		}
+		
+		inputStream.close();
+		byteStream.close();
+		
+		// download ok!
+		this.isDownloaded = true;
+		
+		return byteStream.toByteArray();
+	}
+}

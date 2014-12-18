@@ -22,8 +22,6 @@
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
 <fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
 <fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
-<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-<fullyQualifiedTypeName name="java.net.URL"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.awt.event.ItemListener"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -33,4 +31,9 @@
 <fullyQualifiedTypeName name="org.opencv.imgcodecs.Imgcodecs"/>
 <fullyQualifiedTypeName name="common.Imshow"/>
 <fullyQualifiedTypeName name="org.opencv.core.Mat"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="common.WebPicture"/>
+<fullyQualifiedTypeName name="common.OpenCVImageDecoder"/>
 </qualifiedTypeNameHistroy>
