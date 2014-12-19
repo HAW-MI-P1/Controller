@@ -10,7 +10,7 @@ import org.opencv.imgproc.*;
 public class OpenCVImageDecoder 
 {
 
-	private static final double MAGNITUDE                         = 30;
+	private static final double MAGNITUDE                         = 30.0;
 	private static final double MINIMAL_MATCH_PERCENTAGE          = 50.0;
 	private static final double MINIMAL_NEEDED_MATCHES_PERCENTAGE = 60.0;
 	

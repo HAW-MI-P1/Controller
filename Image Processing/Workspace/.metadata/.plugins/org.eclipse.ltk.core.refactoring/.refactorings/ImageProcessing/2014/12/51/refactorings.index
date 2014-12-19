@@ -5,3 +5,4 @@
 1418930256255	Rename local variable 'logPolarSource'
 1418930269271	Rename local variable 'logPolarTemplate'
 1418930869451	Delete element
+1418975014615	Extract method 'test'
