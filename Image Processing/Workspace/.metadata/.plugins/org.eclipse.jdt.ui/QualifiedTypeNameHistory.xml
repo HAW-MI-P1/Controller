@@ -42,4 +42,5 @@
 <fullyQualifiedTypeName name="common.Imshow"/>
 <fullyQualifiedTypeName name="org.opencv.core.Core.MinMaxLocResult"/>
 <fullyQualifiedTypeName name="org.opencv.core.Mat"/>
+<fullyQualifiedTypeName name="java.lang.RuntimeException"/>
 </qualifiedTypeNameHistroy>

@@ -14,10 +14,10 @@ public class OpenCVImageDecoder
 	private static final double MINIMAL_MATCH_PERCENTAGE          = 50.0;
 	private static final double MINIMAL_NEEDED_MATCHES_PERCENTAGE = 60.0;
 	
+	private boolean supported;
+	
 	public static void main(String[] args) throws MalformedURLException 
 	{
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		
 		OpenCVImageDecoder imageDecoder = new OpenCVImageDecoder();
 		String     searchString         = null;
 		URL        url                  = null;
@@ -120,19 +120,29 @@ public class OpenCVImageDecoder
 		//////////////////////////////////
 	}
 	
-	//////////////////////////////////
-	//////////////////////////////////
-	////////CLASS BEGINS HERE/////////
-	//////////////////////////////////
-	//////////////////////////////////
 	public OpenCVImageDecoder()
 	{
-		
+		if(this.isWindows64())
+		{
+			this.supported = true;
+			System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		}
+		else
+		{
+			this.supported = false;
+			//throw new RuntimeException("Your systeme doesnt support OpenCV Beta version.");
+		}
 	}
 
 	// check for matches
 	public boolean foundObjectInImage(WebPicture picture, String object) throws IOException
 	{
+		if(!this.supported)
+		{
+			//throw new RuntimeException("Your systeme doesnt support OpenCV Beta version.");
+			return false;
+		}
+		
 		Point[]  locations;
 		File     folder    = new File("images/" + object);
 		String   file      = picture.pictureToFile();
@@ -278,5 +288,23 @@ public class OpenCVImageDecoder
 		}
 		
 		return location;
+	}
+	
+	public boolean isSupported()
+	{
+		return this.supported;
+	}
+	
+	private boolean isWindows64()
+	{
+		if(System.getProperty("os.name").toLowerCase().indexOf("win") >= 0 &&
+		   System.getProperty("os.arch").toLowerCase().indexOf("64") >= 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}	
 	}
 }
