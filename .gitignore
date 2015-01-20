@@ -9,6 +9,10 @@ hs_err_pid*
 .classpath
 .project
 .metadata
+/prj/.classpath
+/prj/.project
+/prj/.metadata
+/prj/.recommenders
 **/bin/
 tmp/
 *.tmp
