@@ -1,0 +1,25 @@
+## Java
+*.class
+*.war
+*.ear
+hs_err_pid*
+*.log
+
+## Eclipse
+.classpath
+.project
+.metadata
+**/bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+
+## don't push my secrets
+/bin/
